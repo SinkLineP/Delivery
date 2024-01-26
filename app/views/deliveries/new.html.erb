@@ -1,0 +1,42 @@
+<div class="container hide-required ">
+  <h1 class="center">Delivery</h1>
+
+  <%= simple_form_for @delivery, :html => {:novalidate => false} do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.label :name, label: 'Имя: ' %>
+    <%= f.input :name, required: true, placeholder: 'Введите имя..', class: '', label: false %><br>
+
+    <%= f.label :lastname, label: 'Фамилия: ' %>
+    <%= f.input :lastname, required: true, placeholder: 'Введите фамилию..', label: false   %><br>
+
+    <%= f.label :surname, label: 'Отчество: ' %>
+    <%= f.input :surname, required: true, placeholder: 'Введите отчество..', label: false   %><br>
+
+    <%= f.label :phone, label: 'Телефон: ' %>
+    <%= f.input :phone, required: true, placeholder: 'Пример 79999999999..', label: false %><br>
+
+    <%= f.label :email, label: 'Почта: ' %>
+    <%= f.input :email, required: true, placeholder: 'Пример name@mail.com..', label: false   %><br>
+
+    <%= f.label :weight, label: 'Вес (кг): ' %>
+    <%= f.input :weight, required: true, placeholder: 'Введите вес..', label: false, input_html: { class: 'no-arrows' } %><br>
+
+    <%= f.label :length, label: 'Длина (см): ' %>
+    <%= f.input :length, required: true, placeholder: 'Введите длину..', label: false   %><br>
+
+    <%= f.label :width, label: 'Ширина (см): ' %>
+    <%= f.input :width, required: true, placeholder: 'Введите ширину..', label: false   %><br>
+
+    <%= f.label :height, label: 'Высота (см): ' %>
+    <%= f.input :height, required: true, placeholder: 'Введите высоту..', label: false   %><br>
+
+    <%= f.label :departure_point, label: 'Пункт отправления: ' %>
+    <%= f.input :departure_point, required: true, placeholder: 'Введите пункт отправления..', label: false   %><br>
+
+    <%= f.label :destination, label: 'Пункт назначения: ' %>
+    <%= f.input :destination, required: true, placeholder: 'Введите пункт назначения..', label: false   %><br>
+
+    <%= f.button :submit, label: 'Отправить', class: 'btn btn-success'  %>
+  <% end %>
+</div>

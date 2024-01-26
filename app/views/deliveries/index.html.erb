@@ -1,0 +1,43 @@
+<div class="container">
+  <table class="table" border>
+    <thead class="thead-dark custom-thead">
+      <tr>
+        <th scope="col">#</th>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Отчество</td>
+        <td>Телефон</td>
+        <td>Почта</td>
+        <td>Вес (кг)</td>
+        <td>Высота (см)</td>
+        <td>Ширина (см)</td>
+        <td>Длина (см)</td>
+        <td>Пункт отправки</td>
+        <td>Пункт назначения</td>
+        <td>Расстояние (км)</td>
+        <td>Цена (руб)</td>
+      </tr>
+    </thead>
+    <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <th scope="row"><%= delivery.id %></th>
+        <td><%= delivery.name %></td>
+        <td><%= delivery.lastname %></td>
+        <td><%= delivery.surname %></td>
+        <td><%= delivery.phone %></td>
+        <td><%= delivery.email %></td>
+        <td><%= delivery.weight %></td>
+        <td><%= delivery.height %></td>
+        <td><%= delivery.width %></td>
+        <td><%= delivery.length %></td>
+        <td><%= delivery.departure_point %></td>
+        <td><%= delivery.destination %></td>
+        <td><%= delivery.distance %></td>
+        <td><%= delivery.price %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
