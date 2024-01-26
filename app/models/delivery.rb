@@ -12,4 +12,8 @@ class Delivery < ApplicationRecord
   validates :distance, presence: true
   validates :departure_point, presence: true
   validates :destination, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "departure_point", "destination", "distance", "email", "height", "id", "lastname", "length", "name", "phone", "price", "surname", "updated_at", "weight", "width"]
+  end
 end

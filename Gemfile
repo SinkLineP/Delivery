@@ -42,6 +42,8 @@ gem 'simple_form', '~> 5.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem 'sass-rails', '>= 6'
+gem 'activeadmin'
+gem 'devise'
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
