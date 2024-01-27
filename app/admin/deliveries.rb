@@ -1,4 +1,5 @@
 ActiveAdmin.register Delivery do
+  menu :label => "Deliveries", :priority => 2
   permit_params :name, :surname, :lastname, :phone, :email, :weight, :length, :width, :height, :price, :distance, :departure_point, :destination
 
   index do
