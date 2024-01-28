@@ -16,14 +16,11 @@ class DeliveriesController < ApplicationController
     @delivery.price = result[:price]
     @delivery.distance = result[:distance]
 
-    respond_to do |format|
-      if @delivery.save!
-        format.html { redirect_to deliveries_path }
-        # format.json  { render json: { delivery: @delivery}, status: :ok }
-      else
-        format.html { redirect_to new_delivery_path }
-        # format.json { render json: { error: 'error' }, status: 303 }
-      end
+
+    if @delivery.save
+      redirect_to deliveries_path, notice: "Спасибо за заявку!"
+    else
+      redirect_to new_delivery_path, notice: "Что-то пошло не так. Попробуйте еще раз!"
     end
   end
 
