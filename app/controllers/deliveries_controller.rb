@@ -1,5 +1,6 @@
 
 class DeliveriesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     @deliveries = Delivery.all
   end
@@ -15,19 +16,16 @@ class DeliveriesController < ApplicationController
     @delivery.price = result[:price]
     @delivery.distance = result[:distance]
 
-    # binding.pry
-
-    if @delivery.save!
-      redirect_to action: 'index'
-    else
-      redirect_to action: 'new'
+    respond_to do |format|
+      if @delivery.save!
+        format.html { redirect_to deliveries_path }
+        # format.json  { render json: { delivery: @delivery}, status: :ok }
+      else
+        format.html { redirect_to new_delivery_path }
+        # format.json { render json: { error: 'error' }, status: 303 }
+      end
     end
   end
-
-  def show
-    @delivery = Delivery.find_by(params[:id])
-  end  
-
 
   private
 
