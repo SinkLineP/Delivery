@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Delivery, type: :model do
-  describe 'Delivery Model' do
+  describe 'Delivery Model' do # Тестирование модели Delivery
     context "validate presence of" do # Проверка на наличие данных
       it { should validate_presence_of(:name) }
       it { should validate_presence_of(:lastname) }

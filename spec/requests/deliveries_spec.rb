@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Deliveries", type: :request do
-  describe "Delivery Controller"  do
-    let(:delivery_params) do
+  describe "Delivery Controller"  do # Описание контроллера Delivery
+    let(:delivery_params) do # Определение параметров доставки
       {
         name: "name",
         surname: "surname",
@@ -18,48 +18,48 @@ RSpec.describe "Deliveries", type: :request do
       }
     end
 
-    context "GET index" do
-      it "returns a successful response" do
+    context "GET index" do # Контекст для тестирования GET index
+      it "returns a successful response" do # Проверка успешного ответа
         get "/"
         expect(response).to have_http_status(200)
       end
 
-      it "assigns @deliveries" do
+      it "assigns @deliveries" do # Проверка присвоения переменной @deliveries
         get "/"
         expect(assigns(:deliveries)).to_not be_nil
       end
 
-      it "renders the index template" do
+      it "renders the index template" do # Проверка, что отображается шаблон index
         get "/"
         expect(response).to render_template(:index)
       end
     end
 
-    context "GET new" do
-      it "returns a successful response" do
+    context "GET new" do # Контекст для тестирования GET new
+      it "returns a successful response" do # Проверка успешного ответа
         get "/deliveries/new"
         expect(response).to have_http_status(200)
       end
 
-      it "assigns @delivery" do
+      it "assigns @delivery" do # Проверка присвоения переменной @delivery
         get "/deliveries/new"
         expect(assigns(:delivery)).to_not be_nil
       end
 
-      it "renders the new template" do
+      it "renders the new template" do # Проверка, что отображается шаблон new
         get "/deliveries/new"
         expect(response).to render_template(:new)
       end
     end
 
-    context "POST create" do
-      it "create delivery" do
+    context "POST create" do # Контекст для тестирования POST create
+      it "creates a delivery with valid params" do # Проверка создания доставки с валидными параметрами
         expect {
           post "/deliveries", params: { delivery: delivery_params }
         }.to change(Delivery, :count).by(1)
       end
 
-      it "not create delivery" do
+      it "does not create a delivery with invalid params" do # Проверка, что доставка не создается с невалидными параметрами
         expect {
           post "/deliveries", params: {}
         }.to change(Delivery, :count).by(0)
